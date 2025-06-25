@@ -1,0 +1,47 @@
+**Calculation of pressure drop or flow rate in a system**
+
+Rowheight:               18
+QDecimals:               3
+DiaDecimals:             1
+RhDecimals:              4
+LenDecimals:             1
+PrlossDecimals:          1
+
+Solver mode: Calculate Pressure Loss
+No of line segments:     2
+Flow rate:               6 [l/m]
+Fluid type:              Castrol-Transaqua-HT2 
+Fluid temperature:       5 [dgrC]
+Fluid viscosity:         7.20295 [cSt]
+Fluid density:           1084.41 [kg/m3]
+
+Line no: 0
+Diameter:                10 [mm]
+Length:                  1000 [m]
+Segment lines:           1 
+Line roughness:          0.0015 [mm]
+Line uniformity factor:  10
+Rhup:                    0 [bar/(l/s)2]
+Rhdo:                    0 [bar/(l/s)2]
+Upstream Location:       0 [m]
+Downstream Location:     0 [m]
+Prup:                    339.643 [bar]
+Prdown:                  296.963 [bar]
+Static pressure:         0 [bar]
+Prloss:                  42.679 [bar]
+
+Line no: 1
+Diameter:                15.8 [mm]
+Length:                  20000 [m]
+Segment lines:           1 
+Line roughness:          0.0015 [mm]
+Line uniformity factor:  10
+Rhup:                    100 [bar/(l/s)2]
+Rhdo:                    100 [bar/(l/s)2]
+Upstream Location:       30 [m]
+Downstream Location:     -300 [m]
+Prup:                    296.963 [bar]
+Prdown:                  200 [bar]
+Static pressure:         35.4436 [bar]
+Prloss:                  132.407 [bar]
+

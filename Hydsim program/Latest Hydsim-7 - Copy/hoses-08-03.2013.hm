@@ -1,0 +1,608 @@
+;----------------------------------------
+; Modified parameters in Dunlop hoses below, 3/5-05 JarleE
+;Included Dunlop hoses 22/4-06 JarleE
+; Dunlop hose JD3318-06 (ID 7.2), mwp 230r, nom vol exp @ mwp: 5.51 %
+; Dunlop hose JD5018-06 (ID 7.15), mwp 345 bar, nom vol exp @ mwp: 10.29 %
+; Dunlop hose 350-10-30 (ID 9.5), mwp 345 bar, nom vol exp @ mwp: 6.9 %
+; Dunlop hose 210-10-303T (ID 9.65), mwp 345 bar, nom vol exp @ mwp: 6.9 %
+; Dunlop hose 210-06-10 (ID 6.3), mwp 210 bar, nom vol exp @ mwp: 6.2 %
+
+;----------------------------------------
+; Included Multiflex "H" series 8/4-98 JE
+; Included Duco hoses:
+; 210-13-10, 1/2", 207 bar
+; 210-19-11, 3/4", 207 bar
+; 350-10-11, 3/8", 345 bar
+; 350-10-30, 3/8", 350 bar
+; 350-13-36, 1/2", 350 bar
+
+; Also, revised the manufacturers code, included size and mwp
+;-----------------------------------------
+; Included Synflex "3V20" series 7/9-08 JarleE
+
+
+; Included 3 Duco hoses 17/4-09 JarleE
+; - Duco 210-19-33-02T, ID 19.05 mm, Pmax 207 bar.\nLogarithmic expansion, 4.7 % at Pmax.
+; - Duco 210-25-33-01T, ID 25.4 mm, Pmax 207 bar.\nLogarithmic expansion, 5.2 % at Pmax.
+; - Duco 520-13-33-03T, ID 12.7 mm, Pmax 517 bar.\nLogarithmic expansion, 9.6 % at Pmax.
+
+; Included 1 Synflex hose 14/11-2012 JarleE
+; - Synflex 3395-08, ID 12.7 mm, Pmax 345 bar.\nLogarithmic expansion, 8.2 % at Pmax.
+
+; Included a new hose 24/1+2013 JarleE
+; - JDS JDR-6, ID 6.35 mm, Pmax 1035 bar.\nLogarithmic expansion, 23 % at Pmax.
+; New data from JDR on JDS JDR-6, 8/3-2013 JarleE
+;-----------------------------------------
+; Synflex hose 3V20 1/4" (ID 6.35), mwp 690 bar, nom vol exp @ mwp: 31.4 %
+LINE   Synflex_3V20_6.35-690_bar
+Diameter      6.35  ; Line diameter [mm]
+Mwp           690.000  ; Maximum working pressure
+Beta         24.3762  ; Factor a
+Binc         222.479  ;Factor b
+Bexp         0.227852  ; Factor c.
+;-----------------------------------------
+
+; Synflex hose 3V20 3/8" (ID 9.53), mwp 552 bar, nom vol exp @ mwp: 18.8 %
+LINE   Synflex_3V20_9.53-552_bar
+Diameter      9.53  ; Line diameter [mm]
+Mwp           552.000  ; Maximum working pressure
+Beta         225.676  ; Factor a
+Binc         97.8183   ;Factor b
+Bexp         0.0358154 ; Factor c.
+;-----------------------------------------
+
+; Synflex hose 3395-08 (ID 12.7), mwp 345 bar, nom vol exp @ mwp: 8.2 %
+LINE   Synflex_3395-08_0_12.7-345_bar
+Diameter      12.7  ; Line diameter [mm]
+Mwp           345  ; Maximum working pressure
+Beta         0.609624   ; Factor a
+Binc         1.03802e-006    ;Factor b
+Bexp         0.457117 ; Factor c.
+;-----------------------------------------
+; Dunlop hose JD3318-06 (ID 7.2), mwp 230r, nom vol exp @ mwp: 5.51 %
+LINE   Dunlop_JD3318-06-230_bar
+Diameter      10.1  ; Line diameter [mm]
+Mwp           230.000  ; Maximum working pressure
+Beta         2.76159  ; Factor a
+Binc         2.61946  ;Factor b
+Bexp         0.238411  ; Factor c.
+
+;-----------------------------------------
+; Dunlop hose JD5018-06 (ID 7.15), mwp 345 bar, nom vol exp @ mwp: 10.29 %
+LINE   Dunlop_JD5018-06-345_bar
+Diameter      10.1  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta         10.5925  ; Factor a
+Binc         2.27269  ;Factor b
+Bexp         0.123341  ; Factor c.
+
+;-----------------------------------------
+; Dunlop hose 350-10-30 (ID 9.5), mwp 345 bar, nom vol exp @ mwp: 6.9 %
+LINE   Dunlop_350-10-30-345_bar
+Diameter      7.15  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta         3.61262  ; Factor a
+Binc         22.6379  ;Factor b
+Bexp         0.229969  ; Factor c.
+
+;-----------------------------------------
+; Dunlop hose 210-10-303T (ID 9.65), mwp 345 bar, nom vol exp @ mwp: 6.9 %
+LINE   Dunlop_210-10-303T-345_bar
+Diameter      9.65  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta         0.991179  ; Factor a
+Binc         26.2868  ;Factor b
+Bexp         0.400966  ; Factor c.
+
+;-----------------------------------------
+; Dunlop hose 210-06-10 (ID 6.3), mwp 210 bar, nom vol exp @ mwp: 6.2 %
+LINE   Dunlop_210-06-10-210_bar
+Diameter      6.35  ; Line diameter [mm]
+Mwp           210  ; Maximum working pressure
+Beta        0.237352  ; Factor a
+Binc        29.8674  ;Factor b
+Bexp         0.648906  ; Factor c.
+
+
+;           Multiflex hose 4m8, 1/4"(ID 6.35 mm), mwp 345 bar, nom vol exp @ mwp: 10.3 %
+LINE   Mfx_4m8-1/4"-345_bar
+Diameter      6.35000  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta         0.268100  ; Factor a
+Binc          9.32000  ;Factor b
+Bexp         0.639500  ; Factor c.
+
+;           Multiflex hose 4m9, 1/4"(ID 6.35 mm), mwp 483 bar,  nom vol exp @ mwp: 17.9 %
+LINE   Mfx_4m9-1/4"-483_bar
+Diameter      6.35000  ; Line diameter [mm]
+Mwp           483.000  ; Maximum working pressure
+Beta         0.541600  ;Factor a
+Binc          19.0900  ; Factor b
+Bexp         0.568500  ; Factor c.
+
+;           Multiflex hose 4m10, 1/4"(ID 6.35 mm), mwp 690 bar,  nom vol exp @ mwp: 25.2 %
+LINE   Mfx_4m10-1/4"-690_bar
+Diameter      6.35000  ; Line diameter [mm]
+Mwp           690.000  ; Maximum working pressure
+Beta          1.65320  ;Factor a
+Binc          9.66470  ; Factor b
+Bexp         0.434600  ; Factor c.
+
+;           Multiflex hose 6m8, 3/8" (ID 9.53 mm), mwp 276 bar,  nom vol exp @ mwp: 9.6 %
+LINE   Mfx_6m8-3/8"-276_bar
+Diameter      9.53      ; Line diameter [mm]
+Mwp           276.000  ; Maximum working pressure
+Beta         0.973700  ; Factor a
+Binc          25.2850  ; Factor b
+Bexp         0.462800  ; Factor c
+
+;           Multiflex hose 6m10, 3/8" (ID 9.53 mm), mwp 517 bar,  nom vol exp @ mwp: 16 %
+LINE   Mfx_6m10-3/8"-517_bar
+Diameter      9.53     ; Line diameter [mm]
+Mwp           517.000  ; Maximum working pressure
+Beta          1.18340  ; Factor a
+Binc          14.9870  ; Factor b
+Bexp         0.448800  ; Factor c.
+
+;           Multiflex hose 8m8, 1/2" (ID 12.7 mm), mwp 241 bar,  nom vol exp @ mwp: 6.3 %
+LINE   Mfx_8m8-1/2"-241_bar
+Diameter      12.7000  ; Line diameter [mm]
+Mwp           241.000  ; Maximum working pressure
+Beta          5.39000E-02  ; Factor a
+Binc          12.7640  ; Factor b
+Bexp         0.897600  ; Factor c.
+
+;           Multiflex hose 8m10, 1/2" (ID 12.7 mm), mwp 345 bar,  nom vol exp @ mwp: 10.8 %
+LINE   Mfx_8m10-1/2"-345_bar
+Diameter      12.7000  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta          1.53780  ; Factor a
+Binc          14.7710  ; Factor b
+Bexp         0.376700  ; Factor c.
+
+;           Multiflex hose 8m11, 1/2" (ID 12.7 mm), mwp 552 bar,  nom vol exp @ mwp: 18.2 %
+LINE   Mfx_8m11-1/2"-552_bar
+Diameter      12.7000  ; Line diameter [mm]
+Mwp           552.000  ; Maximum working pressure
+Beta          2.99510  ; Factor a
+Binc          2.78150  ; Factor b
+Bexp         0.316700  ; Factor c.
+
+;           Multiflex hose 12m9, 3/4" (ID 19 mm), mwp 207 bar,  nom vol exp @ mwp: 8 %
+LINE   Mfx_12m9-3/4"-210_bar
+Diameter      19.05     ; Line diameter [mm]
+Mwp           207.0    ; Maximum working pressure
+Beta         0.255100  ;Factor a
+Binc          8.19250  ; Factor b
+Bexp         0.662900  ; Factor c.
+
+;           Multiflex hose 12m10, 3/4" (ID 19 mm), mwp 345 bar,  nom vol exp @ mwp: 10 %
+LINE   Mfx_12m10-3/4"-345_bar
+Diameter      19.0000  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta          3.73420  ; Factor a
+Binc          14.7590  ; Factor b
+Bexp         0.263300  ; Factor c.
+
+;           Multiflex hose 16m9, 1" (ID 25.4 mm), mwp 207 bar,  nom vol exp @ mwp: 7.5 %
+LINE   Mfx_16m9-1"-207_bar
+Diameter      25.4000  ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta         0.457600  ; Factor a
+Binc          9.28650  ; Factor b
+Bexp         0.555300  ; Factor c.
+
+;           Multiflex hose 16m11, 1" (ID 25.4 mm), mwp 345 bar,  nom vol exp @ mwp: 10.9 %
+LINE   Mfx_16m11-1"-345_bar
+Diameter      25.4000  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta          1.28330  ; Factor a
+Binc          11.1130  ; Factor b
+Bexp         0.407400  ; Factor c.
+
+; The new "H" series are designed with a exponential expansion form where 
+;the expansion at 15% of the mwp is approximately 50 % of expansion at mwp. 
+;The first number in the model code denotes the hose ID in 16 parts of an inch, 
+;i.e. 3 denotes a 3/16" hose, 4 a 4/16= 1/4" hose etc. 
+;The last number denotes the mwp in 1000 psi, i.e. 3 denotes 3000 psi, 5 5000 psi and so on.
+
+; The available hoses are:
+
+;           Multiflex hose  3H3, 3/16" (4.76 mm), 207 bar, 8.12 % vol exp at mwp.
+LINE   Mfx_3H3-3/16"-207_bar
+Diameter      4.76       ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta                0.2644  ;  Factor a
+Binc                1.9509e-6 ; Factor b
+Bexp               0.64035    ; Factor c
+
+;           Multiflex hose  4H3, 1/4" (6.35 mm), 207 bar, 8.12 % vol exp at mwp.
+LINE   Mfx_4H3-1/4"-207_bar
+Diameter          6.35       ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta                0.96675  ;  Factor a
+Binc                0.31191 ; Factor b
+Bexp               0.43464    ; Factor c
+
+;          Multiflex hose  6H3, 3/8" (9.53 mm), 207 bar, 2.96 % vol exp at mwp.
+LINE   Mfx_6H3-3/8"-207_bar
+Diameter          9.53       ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta                0.25269  ;  Factor a
+Binc                2.6168 ; Factor b
+Bexp               0.47784    ; Factor c
+ 
+;          Multiflex hose  8H3, 1/2" (12.7 mm), 207 bar, 7.23 % vol exp at mwp.
+LINE   Mfx_8H3-1/2"-207_bar
+Diameter         12.7       ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta                0.43689  ;  Factor a
+Binc                1.8656 ; Factor b
+Bexp               0.5385    ; Factor c 
+
+;          Multiflex hose  10H3, 5/8" (15.9 mm), 207 bar, 7.13 % vol exp at mwp.
+LINE   Mfx_10H3-5/8"-207_bar
+Diameter         15.9        ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta                0.56161  ;  Factor a
+Binc                1.8339   ; Factor b
+Bexp               0.49126   ; Factor c
+
+;          Multiflex hose  12H3, 3/4" (19.05 mm), 207 bar, 9.31 % vol exp at mwp.
+LINE   Mfx_12H3-3/4"-207_bar
+Diameter          19.05       ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta                0.75863  ;  Factor a
+Binc                4.6581   ; Factor b
+Bexp               0.49893   ; Factor c
+
+;          Multiflex hose  16H3, 1" (19.05 mm), 210 bar, 9.31 % vol exp at mwp.
+LINE   Mfx_16H3-1"-207_bar
+Diameter          25.4       ; Line diameter [mm]
+Mwp           207.0         ; Maximum working pressure
+Beta                0.69699  ;  Factor a
+Binc                0.90102  ; Factor b
+Bexp               0.49758  ; Factor c
+
+;          Multiflex hose  4H5, 1/4" (6.35 mm), 345 bar, 13.89 % vol exp at mwp.
+LINE   Mfx_4H5-1/4"-345_bar
+Diameter           6.35       ; Line diameter [mm]
+Mwp             345.0  ; Maximum working pressure
+Beta                 1.4788  ;  Factor a
+Binc                 0.38621  ; Factor b
+Bexp                0.39401  ; Factor c
+
+;          Multiflex hose  6H5, 3/8" (9.53 mm), 345 bar, 4.38 % vol exp at mwp.
+LINE   Mfx_6H5-3/8"-345_bar
+Diameter           9.53       ; Line diameter [mm]
+Mwp             345.0        ; Maximum working pressure
+Beta                 0.62275  ;  Factor a
+Binc                 1.914     ; Factor b
+Bexp                0.35892  ; Factor c
+
+;          Multiflex hose  8H5, 1/2" (12.7 mm), 345 bar, 11.12 % vol exp at mwp.
+LINE   Mfx_8H5-1/2"-345_bar
+Diameter          12.7       ; Line diameter [mm]
+Mwp             345.0      ; Maximum working pressure
+Beta                 1.6275  ;  Factor a
+Binc                 1.2199  ; Factor b
+Bexp                0.35175  ; Factor c
+
+;          Multiflex hose  10H5, 5/8" (15.9 mm), 345 bar, 10.24 % vol exp at mwp.
+LINE   Mfx_10H5-5/8"-345_bar
+Diameter          15.9       ; Line diameter [mm]
+Mwp             345.0       ; Maximum working pressure
+Beta                 1.1545  ;  Factor a
+Binc                 1.7006  ; Factor b
+Bexp                0.39092  ; Factor c 
+
+;          Multiflex hose  12H5, 3/4" (19.05 mm), 345 bar, 12.48 % vol exp at mwp.
+LINE   Mfx_12H5-3/4"-345_bar
+Diameter          19.05       ; Line diameter [mm]
+Mwp             345.0         ; Maximum working pressure
+Beta                 1.1939    ;  Factor a
+Binc                 1.649     ; Factor b
+Bexp                0.42055  ; Factor c 
+
+
+;          Multiflex hose  16H5, 1" (25.4 mm), 345 bar, 11.11 % vol exp at mwp.
+LINE   Mfx_16H5-1"-345_bar
+Diameter          25.4       ; Line diameter [mm]
+Mwp             345.0         ; Maximum working pressure
+Beta                 1.6733    ;  Factor a
+Binc                 0.59773     ; Factor b
+Bexp                0.34485  ; Factor c 
+
+;          Multiflex hose  12H6, 3/4" (19.05 mm), 414 bar, 12.9 % vol exp at mwp.
+LINE   Mfx_16H6-1"-414_bar
+Diameter          19.05       ; Line diameter [mm]
+Mwp             414.0         ; Maximum working pressure
+Beta                 1.7945    ;  Factor a
+Binc                 0.2209     ; Factor b
+Bexp                0.339  ; Factor c 
+
+
+;          Multiflex hose  4H7.5, 1/4" (6.35 mm), 517 bar, 17.26 % vol exp at mwp.
+LINE   Mfx_4H7.5-1/4"-517_bar
+Diameter           6.35       ; Line diameter [mm]
+Mwp             517.0         ; Maximum working pressure
+Beta                 1.4855    ;  Factor a
+Binc                 0.56227     ; Factor b
+Bexp                0.40153  ; Factor c 
+
+;          Multiflex hose  6H7.5, 3/8" (9.53 mm), 517 bar, 22.13 % vol exp at mwp.
+LINE   Mfx_6H7.5-3/8"-517_bar
+Diameter           9.53       ; Line diameter [mm]
+Mwp             517.0         ; Maximum working pressure
+Beta                 2.3374    ;  Factor a
+Binc                 0.1     ; Factor b
+Bexp                0.3615  ; Factor c 
+
+;          Multiflex hose  8H7.5, 1/2" (12.7 mm), 517 bar, 14.25 % vol exp at mwp.
+LINE   Mfx_8H7.5-1/2"-517_bar
+Diameter          12.7       ; Line diameter [mm]
+Mwp             517.0         ; Maximum working pressure
+Beta                 1.352    ;  Factor a
+Binc                 0.01     ; Factor b
+Bexp                0.3771  ; Factor c 
+
+;          Multiflex hose  10H7.5, 5/8" (15.9 mm), 517 bar, 13.58 % vol exp at mwp.
+LINE   Mfx_10H7.5-5/8"-517_bar
+Diameter          15.9       ; Line diameter [mm]
+Mwp             517.0         ; Maximum working pressure
+Beta                 1.0983    ;  Factor a
+Binc                 0.01     ; Factor b
+Bexp                0.4037  ; Factor c 
+ 
+ ;          Multiflex hose  4H10, 1/4" (6.35 mm), 690 bar, 6.52 % vol exp at mwp.
+LINE   Mfx_4H10-1/4"-690_bar
+Diameter            6.35       ; Line diameter [mm]
+Mwp              690.0         ; Maximum working pressure
+Beta                 0.3678     ;  Factor a
+Binc                 0.01577   ; Factor b
+Bexp                0.4379     ; Factor c 
+ 
+  ;          Multiflex hose  6H10, 3/8" (9.53 mm), 690 bar, 26.55 % vol exp at mwp.
+LINE   Mfx_6H10-3/8"-690_bar
+Diameter            9.53       ; Line diameter [mm]
+Mwp              690.0         ; Maximum working pressure
+Beta                 8.1917     ;  Factor a
+Binc                 1.3156    ; Factor b
+Bexp                0.222      ; Factor c 
+ 
+;          Multiflex hose  8H10, 1/2" (12.7 mm), 690 bar, 22.1 % vol exp at mwp.
+LINE   Mfx_8H10-1/2"-690_bar
+Diameter           12.7       ; Line diameter [mm]
+Mwp              690.0       ; Maximum working pressure
+Beta                 8.1777    ;  Factor a
+Binc                 0.2844    ; Factor b
+Bexp                0.1884    ; Factor c 
+
+ ;          Multiflex hose  4H12.5, 1/4" (6.35 mm), 862 bar, 32.3 % vol exp at mwp.
+LINE   Mfx_4H12.5-1/4"-862_bar
+Diameter            6.35       ; Line diameter [mm]
+Mwp              862.0         ; Maximum working pressure
+Beta                 8.0129     ;  Factor a
+Binc                 2.6533   ; Factor b
+Bexp                0.2458     ; Factor c 
+
+: The Duco hoses are less exponential than the Multiflex hoses
+; Expansion of hoses 
+;       210-13-10, 1/2", 207 bar
+;         210-19-11, 3/4", 207 bar
+;            350-10-11, 3/8", 345 bar
+;               350-10-30, 3/8", 350 bar
+;and               350-13-36, 1/2", 350 ba
+; are almost linear functions of pressure
+
+;          Duco hose 210-13-10, 1/2", 207 bar, nom vol exp at mwp: 6.52 % 
+LINE   Du-210-13-10_1/2"-207_bar
+Diameter      12.7  ; Line diameter [mm]
+Mwp           207.  ; Maximum working pressure
+Beta            0.2641  ;  Factor a
+Binc            0.001  ;  Factor b
+Bexp           0.59727  ;   Factor c
+
+;          Duco hose 210-19-11, 3/4", 207 bar, nom vol exp at mwp: 7.33 % 
+LINE   Du-210-19-11_3/4"-207_bar
+Diameter      19.05  ; Line diameter [mm]
+Mwp           207.  ; Maximum working pressure
+Beta            1.5394  ;  Factor a
+Binc            0.01  ;  Factor b
+Bexp           0.29649  ;   Factor c
+
+;          Duco hose 350-10-11, 3/8", 345 bar, nom vol exp at mwp: 7.91 % 
+LINE   Du-350-10-11_3/8"-345_bar
+Diameter      9.53  ; Line diameter [mm]
+Mwp           345.  ; Maximum working pressure
+Beta            0.062309  ;  Factor a
+Binc            2.4289  ;  Factor b
+Bexp           0.82818  ;   Factor c
+
+;          Duco hose 350-10-30, 3/8", 345 bar, nom vol exp at mwp: 6.86 % 
+LINE   Du-350-10-30_3/8"-345_bar
+Diameter      9.53  ; Line diameter [mm]
+Mwp           345.  ; Maximum working pressure
+Beta            0.40069  ;  Factor a
+Binc            1.8736  ;  Factor b
+Bexp           0.49536  ;   Factor c
+
+;          Duco hose 350-13-36, 1/2", 345 bar, nom vol exp at mwp: 7.48 % 
+LINE   Du-350-13-36_1/2"-345_bar
+Diameter      12.7  ; Line diameter [mm]
+Mwp           345.  ; Maximum working pressure
+Beta            0.11927  ;  Factor a
+Binc            2.0567  ;  Factor b
+Bexp           0.70362  ;   Factor c
+
+; - Duco 210-19-33-02T, ID 19.05 mm, Pmax 207 bar.\nLogarithmic expansion, 4.7 % at Pmax.
+LINE Du-210-19-33-02T
+Diameter      19.00  ; Line diameter [mm]
+Mwp           210.000  ; Maximum working pressure
+Beta          0.176538  ;  Factor a
+Binc          2.56533e-10 ;  Factor b
+Bexp         0.62205  ;   Factor c
+
+; - Duco 210-25-33-01T, ID 25.4 mm, Pmax 207 bar.\nLogarithmic expansion, 5.2 % at Pmax.
+LINE Du-210-25-33-01T
+Diameter      25.400  ; Line diameter [mm]
+Mwp           210.000  ; Maximum working pressure
+Beta          0.954232  ;  Factor a
+Binc          2.82449e-10 ;  Factor b
+Bexp         0.349542  ;   Factor c
+
+; - Duco 520-13-33-03T, ID 12.7 mm, Pmax 517 bar.\nLogarithmic expansion, 9.6 % at Pmax.
+LINE Du-520-13-33-03T
+Diameter      12.700  ; Line diameter [mm]
+Mwp           517.000  ; Maximum working pressure
+Beta          0.679684  ;  Factor a
+Binc          3.37663e-11 ;  Factor b
+Bexp         0.433923  ;   Factor c
+
+;          BTR hose TK30/00-06, 3/8"(ID 9.5 mm), Pmax 207 bar 
+LINE   BTR_TK30-00-06-3/8"
+Diameter      9.50000  ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta          1.00070  ;  Factor a
+Binc          13.8240  ;  Factor b
+Bexp         0.427500  ;   Factor c
+
+;           BTR hose TK75/80-06, 3/8"(ID 9.5 mm), Pmax 517 bar
+LINE   BTR_TK75-80-06-3/8"
+Diameter      9.50000  ; Line diameter [mm]
+Mwp           517.000  ; Maximum working pressure
+Beta         0.388400  ;   Factor a
+Binc          10.9030  ;   Factor b
+Bexp         0.569200  ;  Factor c
+
+;           BTR hose TK30/00-08, 1/2"(ID 12.7 mm), Pmax 207 bar
+LINE   BTR_TK30-00-08-1/2"
+Diameter      12.7000  ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta          1.08950  ;   Factor a
+Binc          13.7420  ;   Factor b
+Bexp         0.414800  ;   Factor c
+
+;           BTR hose TK75/80-08, 1/2"(ID 12.7 mm), Pmax 517 bar
+LINE   BTR_TK75-80-08-1/2"
+Diameter      12.7000  ; Line diameter [mm]
+Mwp           517.000  ; Maximum working pressure
+Beta          7.23930  ;   Factor a
+Binc          33.7320  ;   Factor b
+Bexp         0.233300  ;   Factor c
+
+;           BTR hose TK30/00-10, 5/8"(ID 15.9 mm), Pmax 207 bar
+LINE   BTR_TK30-00-10-5/8"
+Diameter      15.9000  ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta          1.25310  ;   Factor a
+Binc          13.3890  ;    Factor b
+Bexp         0.398400  ;   Factor c
+
+;           BTR hose TK30/40-12, 3/4"(ID 19 mm), Pmax 207 bar
+LINE   BTR_TK30-40-12-3/4"
+Diameter      19.0000  ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta          1.10350  ;   Factor a
+Binc          9.45520  ;   Factor b
+Bexp         0.413400  ;   Factor c.
+
+;           Dunlop hose T507-1, 1/2"(ID 12.7 mm), Pmax 207 bar
+LINE  Dunlop_T507-1-1/2"
+Diameter      12.7000  ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta          3.22170  ;  Factor a
+Binc          1.80520  ; I  Factor b
+Bexp         0.249000  ;   Factor c
+
+;           Dunlop hose T507-2, 3/8"(ID 9.5 mm), Pmax 345 bar
+LINE  Dunlop_T507-2-3/8"
+Diameter      9.50000  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta         0.388400  ;  Factor a
+Binc          10.9030  ;  Factor b
+Bexp         0.569200  ;  Factor c
+
+;           Dunlop hose T507-3, 1/2"(ID 12.7 mm), Pmax 345 bar
+LINE  Dunlop_T507-3-1/2"
+Diameter      12.7000  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta          1.08950  ;   Factor a
+Binc          13.7420  ;   Factor b
+Bexp         0.414800  ;   Factor c
+
+;           Pirelli 3/8"-3k, 3/8"(ID 9.5 mm), Pmax 207 bar
+LINE   Pirelli_3/8-3K-3/8"
+Diameter      9.5000  ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta          0.2073  ;   Factor a
+Binc          3.9628  ;  Factor b
+Bexp         0.6893  ;   Factor c.
+
+;           Pirelli 1/2"-3k, 1/2"(ID 12.7 mm), Pmax 207 bar
+LINE   Pirelli_1/2-3K-1/2"
+Diameter      12.7000  ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta          0.06165  ;  Factor a
+Binc          1.2985  ;  Factor b
+Bexp         0.86  ;  Factor c
+
+;           Pirelli 1/2"-5k, 1/2"(ID 12.7 mm), Pmax 345 bar
+LINE   Pirelli_1/2-5K-1/2"
+Diameter      12.7000  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta          0.05264  ;  Factor a
+Binc          3.6849  ;  Factor b
+Bexp         0.8951  ;  Factor c
+
+;           CBV 3/8"-5k, 3/8"(ID 9.55 mm), Pmax 345 bar
+LINE   CBV_3/8-5K-3/8"
+Diameter      9.5500  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta          0.2174  ;  Factor a
+Binc          4.038  ;  Factor b
+Bexp          0.6531 ;  Factor c
+
+;           Petrobas  1/2"-5k, 1/2"(ID 12.7 mm), Pmax 345 bar
+LINE   PB_1/2-5K-1/2"
+Diameter      12.7  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta          0.05372  ;  Factor a
+Binc          5.0137  ;  Factor b
+Bexp         0.8939 ;  Factor c
+
+;           Petrobas  1/2"-3k, 1/2"(ID 12.7 mm), Pmax 207 bar
+LINE   PB_1/2-3K-1/2"
+Diameter      12.7  ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta          0.2001  ;  Factor a
+Binc          3.5435  ;  Factor b
+Bexp         0.6791 ;   Factor c
+
+
+;           Petrobas  3/8"-5k, 3/8"(ID 9.525 mm), Pmax 345 bar
+LINE   PB_3/8-5K-3/8"
+Diameter      9.525  ; Line diameter [mm]
+Mwp           345.000  ; Maximum working pressure
+Beta          0.02765  ;  Factor a
+Binc          4.4333  ;  Factor b
+Bexp         0.9953 ;  Factor c
+
+
+;           Petrobas  3/8"-3k, 3/8"(ID 9.525 mm), Pmax 207 bar
+LINE   PB_3/8-3K-3/8"
+Diameter      9.525  ; Line diameter [mm]
+Mwp           207.000  ; Maximum working pressure
+Beta          0.06075  ;  Factor a
+Binc          4.3781  ; Factor b
+Bexp         0.8868 ; Factor c.
+
+
+; - JDS JDR-6, ID 6.35 mm, Pmax 1035 bar.
+LINE   JDR-6-15K-1/4"
+Diameter      6.35  ; Line diameter [mm]
+Mwp           1035  ; Maximum working pressure
+Beta          0.932161  ;  Factor a
+Binc          2.53163e-05  ; Factor b
+Bexp         0.47466 ; Factor c.
+

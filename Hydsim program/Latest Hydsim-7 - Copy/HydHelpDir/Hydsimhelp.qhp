@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <QtHelpProject version="1.0">
+   <namespace>FMC.Hydsim</namespace>
+   <virtualFolder>Doc</virtualFolder>
+   <customFilter name="Tube 1.0">
+     <filterAttribute>myapp</filterAttribute>
+     <filterAttribute>1.0</filterAttribute>
+   </customFilter>
+   <filterSection>
+     <toc>
+       <section title="Hydsim Manual" ref="index.htm">
+         <section title="Introduction" ref="hydsimintroduction.htm">
+           <section title="File menu" ref="file_pull_down_menu.htm"/>
+           <section title="Commands menu" ref="commands_pull_down_menu.htm"/>
+           <section title="Configure menu" ref="configure_pull_down_menu.htm"/>
+           <section title="Help menu" ref="help_pull_down_menu..htm"/>
+           <section title="Plotting simulation results" ref="plotting.htm"/>
+           <section title="System types" ref="system_types.htm"/>
+         </section>
+         <section title="Dynamic simulation" ref="dynamic_simulation.htm">
+           <section title="The available solvers" ref="solvers.htm"/>
+           <section title="The Tolerance challenge" ref="numerical_accuracy.htm"/>
+         </section>
+         <section title="Environment" ref="hydsimenv.htm"/>
+         <section title="Differential equations used in Hydsim" ref="differential_equations_used_in_hydsim.htm"/>
+         <section title="Data file format" ref="the_data_file.htm"/>
+         <section title="Nomenclature" ref="nomenclature.htm"/>
+         <section title="Subsea Control Systems" ref="the_main_elements_in_a_production_control_system.htm">
+           <section title="A typical HPU" ref="a_typical_hpu.htm"/>
+           <section title="A typical umbilical" ref="a_typical_umbilical.htm"/>
+           <section title="A typical SCM" ref="a_typical_scm.htm"/>
+           <section title="A typical XT gate valve" ref="a_typical_gate_valve.htm"/>
+         </section>
+         <section title="Hydraulic Topics" ref="">
+           <section title="Fluid Bulk Modulus" ref="fluid_bulk_modulus.htm"/>
+           <section title="CV" ref="cv.htm"/>
+           <section title="Fluids" ref="fluids.htm"/>
+           <section title="Line pressure loss" ref="lineprloss.htm"/>
+           <section title="Elastomeric lines" ref="elastomericlines.htm"/>
+           <section title="A Distributed Line Model" ref="distributedlinemath.htm"/>
+           <section title="Haalands Formulae" ref="haaland.htm"/>
+           <section title="FLF (Form Loss Factor)" ref="formlossfactor.htm"/>
+           <section title="Rh (Hydraulic Resistance)" ref="rh.htm"/>
+           <section title="A dynamic accumulator model" ref="accumulator_equations_overwiev.htm"/>
+         </section>
+       </section>
+     </toc>
+     <keywords>
+       <keyword name="A typical Production Control System" ref="the_main_elements_in_a_production_control_system.htm"/>
+       <keyword name="Open/Closed hydraulic systems" ref="openclosed_systems_types.htm"/>
+       <keyword name="Composite umbilicals" ref="a_typical_umbilical.htm"/>
+       <keyword name="SCM" ref="a_typical_scm.htm"/>
+       <keyword name="Dynamic simulation of hydraulic lines" ref="distributedlinemath.htm"/>
+       <keyword name="Hydraulic fluids" ref="fluids.htm"/>
+       <keyword name="Fluid Bulk modulus" ref="fluid_bulk_modulus.htm"/>            
+       <keyword name="Haalands formula" ref="haaland.htm"/>
+       <keyword name="Colebrook" ref="haaland.htm"/>
+       <keyword name="Moody diagram" ref="haaland.htm"/>
+       <keyword name="Darcy-Weisbach friction factor" ref="distributedlinemath.htm"/>
+       <keyword name="Bratland" ref="distributedlinemath.htm"/>
+       <keyword name="Environment" ref="hydsimenv.htm"/>
+       <keyword name="Form loss" ref="formlossfactor.htm"/>            
+       <keyword name="Hydraulic resistance" ref="rh.htm"/> 
+       <keyword name="Pressure losses in hydraulic lines" ref="lineprloss.htm"/>
+       <keyword name="Nomenclature" ref="nomenclature.htm"/>
+       <keyword name="Numerical accuracy" ref="numerical_accuracy.htm"/> 
+       <keyword name="Plotting simulation results" ref="plotting.htm"/> 
+       <keyword name="Accumulators" ref="accumulator_equations_overwiev.htm"/>
+       <keyword name="The mathematical model of accumulators" ref="a_mathematical_model_of_a_accumu.htm"/>
+       <keyword name="Real gas equations" ref="real_gas_versus_ideal_gas_equations.htm"/> 
+       <keyword name="Dynamic simulation" ref="dynamic_simulation.htm"/>
+       <keyword name="Differential equations" ref="differential_equations_used_in_hydsim.htm"/>
+     </keywords>
+     <files>
+       <file>accumulator_equations_overwiev.htm</file>
+       <file>accumulators,_how_the_gas_tmpr_and_volume_is_computed.png</file>
+       <file>accumulators.png</file>
+       <file>actuators.htm</file>
+       <file>a_mathematical_model_of_a_accumu.htm</file>
+       <file>a_open_system.htm</file>
+       <file>a_typical_composite_umbilical.png</file>
+       <file>a_typical_gate_valve.htm</file>
+       <file>a_typical_gate_valve.png</file>
+       <file>a_typical_hpu.htm</file>
+       <file>a_typical_hpu.png</file>
+       <file>a_typical_hydraulic_production_control_system(open).png</file>
+       <file>a_typical_satellite_xt.htm</file>
+       <file>a_typical_satellite_xt.png</file>
+       <file>a_typical_scm.htm</file>
+       <file>a_typical_scm.png</file>
+       <file>a_typical_umbilical.htm</file>
+       <file>bbwr.htm</file>
+       <file>chapter_2.htm</file>
+       <file>commands_pull_down_menu.htm</file>
+       <file>commands_pull_down_menu.png</file>
+       <file>configaccumulators.png</file>
+       <file>config_accumulator_win.htm</file>
+       <file>configanimation.png</file>
+       <file>config_animation_win.htm</file>
+       <file>configbladder.png</file>
+       <file>config_bladder_win.htm</file>
+       <file>config_exhaust_valve_win.htm</file>
+       <file>configexhvalve.png</file>
+       <file>config_global_page.htm</file>
+       <file>configglobals.png</file>
+       <file>config_hpu_page.htm</file>
+       <file>confighpu.png</file>
+       <file>confighpu_2.png</file>
+       <file>confighydrdistr.png</file>
+       <file>confighydrdistr_2.png</file>
+       <file>configline.png</file>
+       <file>config_lines_win.htm</file>
+       <file>configmanifold.png</file>
+       <file>config_manifold_win.htm</file>
+       <file>config_postscript_win.htm</file>
+       <file>configps.png</file>
+       <file>configreceiver.png</file>
+       <file>config_receiver_win.htm</file>
+       <file>config_scm_page.htm</file>
+       <file>configscm.png</file>
+       <file>configscm_2.png</file>
+       <file>configsequence.png</file>
+       <file>configsequence_2.png</file>
+       <file>config_sequence_win.htm</file>
+       <file>configsimulation.png</file>
+       <file>config_simulation_win.htm</file>
+       <file>config_system.htm</file>
+       <file>configure_hydraulic_distribution_page.htm</file>
+       <file>configuremanifold.png</file>
+       <file>configurepostscript.png</file>
+       <file>configure_pull_down_menu.htm</file>
+       <file>configure_pull_down_menu.png</file>
+       <file>plotting.htm</file>
+       <file>configuresimulationwin.htm</file>
+       <file>configure_system.png</file>
+       <file>configure_system_2.png</file>
+       <file>copy_of_save_data_file.htm</file>
+       <file>copy_of_save_data_file.png</file>
+       <file>cv.htm</file>
+       <file>differential_equationd_used_in_hydsim.png</file>
+       <file>differential_equations_used_in_hydsim.htm</file>
+       <file>distributedlinemath.htm</file>
+       <file>dynamic_simulation.htm</file>
+       <file>elastomericlines.htm</file>
+       <file>filemenuaddinfo.htm</file>
+       <file>file_pull_down_menu.htm</file>
+       <file>file_pull_down_menu.png</file>
+       <file>first_page.png</file>
+       <file>fluid_bulk_modulus.htm</file>
+       <file>fluids.htm</file>
+       <file>fluidwindow.png</file>
+       <file>formlossfactor.htm</file>
+       <file>hydraulic_restrictions_calculations.png</file>
+       <file>hydsimenv.htm</file>
+       <file>hydsimintroduction.htm</file>
+       <file>haaland.htm</file>
+       <file>help_pull_down_menu.htm</file>
+       <file>help_pull_down_menu.png</file>
+       <file>image24.png</file>
+       <file>image27.png</file>
+       <file>image34.png</file>
+       <file>image35.png</file>
+       <file>image36.png</file>
+       <file>image37.png</file>
+       <file>image38.png</file>
+       <file>image39.png</file>
+       <file>image40.png</file>
+       <file>image41.png</file>
+       <file>image42.png</file>
+       <file>image43.png</file>
+       <file>image44.png</file>
+       <file>image45.png</file>
+       <file>image46.png</file>
+       <file>image47.png</file>
+       <file>image48.png</file>
+       <file>image49.png</file>
+       <file>image50.png</file>
+       <file>image51.png</file>
+       <file>image78.png</file>
+       <file>image79.png</file>
+       <file>image80.png</file>
+       <file>image81.png</file>
+       <file>image82.png</file>
+       <file>image83.png</file>
+       <file>image84.png</file>
+       <file>image85.png</file>
+       <file>index.htm</file>
+       <file>lineprloss.htm</file>
+       <file>main_window.htm</file>
+       <file>mainwindow.png</file>
+       <file>nomenclature.htm</file>
+       <file>numerical_accuracy.htm</file>
+       <file>openclosed_systems_types.htm</file>
+       <file>openclosed_system_types_.png</file>
+       <file>open_data_file_dialog.htm</file>
+       <file>open_data_file.png</file>
+       <file>plot_dialog.htm</file>
+       <file>plotdialog.png</file>
+       <file>plotdialog_2.png</file>
+       <file>plotting_in_other_directory.png</file>
+       <file>real_gas_versus_ideal_gas_equations.htm</file>
+       <file>rh.htm</file>
+       <file>save_data_file.htm</file>
+       <file>save_data_file.png</file>
+       <file>save_result_file.png</file>
+       <file>save_results.htm</file>
+       <file>save_results.png</file>
+       <file>scmhydroverview.htm</file>
+       <file>select_plot_directoty.htm</file>
+       <file>s_ex0_err_expanded.png</file>
+       <file>s_ex0_err.png</file>
+       <file>s_ex0_iter_expanded.png</file>
+       <file>s_ex0_iter.png</file>
+       <file>s_ex0_pos_dt.png</file>
+       <file>solvers.htm</file>
+       <file>start_page.png</file>
+       <file>startpage.png</file>
+       <file>system_types.htm</file>
+       <file>the_data_file.htm</file>
+       <file>the_main_elements_in_a_production_control_system.htm</file>
+       <file>the_main_elements_in_a_production_control_system.png</file>
+       <file>the_main_window.png</file>
+       <file>the_main_window_2.png</file>
+       <file>the_scm_hyraulics.png</file>
+       <file>tool_pull_down_menu.png</file>
+       <file>tools_menu.png</file>
+       <file>units.htm</file>
+       <file>moody.png</file>
+       <file>postscriptHardcopy.png</file>
+       <file>configPostscript.png</file>
+       <file>colors.png</file>
+       <file>patterns.png</file>
+       <file>PlotWindow.png</file>
+       <file>refresh.png</file>
+       <file>multipleAxis.png</file>
+       <file>selectColors.png</file>
+       <file>postscriptHardcopy.png</file>
+       <file>configPostscript.png</file>
+       <file>selectColors.png</file>
+     </files>
+   </filterSection>
+ </QtHelpProject>
+ 

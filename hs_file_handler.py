@@ -29,8 +29,8 @@ FUNCTION_TO_NAME = {v: k for k, v in FUNCTION_MAP.items()}
 
 # Mapowanie funkcji hydraulicznych
 FUNCTION_MAP_SHAPE = {
-    "V-H": "2",
-    "H-V": "1",
+    "V-H": "1",
+    "H-V": "2",
     "Straight": "0",
 }
 FUNCTION_TO_NAME_SHAPE = {v: k for k, v in FUNCTION_MAP_SHAPE.items()}

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2975292-43d1-4795-a75f-99aa2de657c2" name="Changes" comment="">
+    <list default="true" id="c2975292-43d1-4795-a75f-99aa2de657c2" name="Changes" comment="Poprawka v2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hydsim program/Latest Hydsim-7 - Copy/CASY DO TESTOW/Testy 17.06/CASE 10.hs" beforeDir="false" afterPath="$PROJECT_DIR$/Hydsim program/Latest Hydsim-7 - Copy/CASY DO TESTOW/Testy 17.06/CASE 10.hs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui_components.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui_components.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hs_file_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/hs_file_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui_main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +99,19 @@
       <option name="presentableId" value="Default" />
       <updated>1748252803138</updated>
     </task>
+    <task id="LOCAL-00001" summary="Poprawka v2">
+      <option name="closed" value="true" />
+      <created>1750934906097</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750934906097</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Poprawka v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawka v2" />
   </component>
 </project>

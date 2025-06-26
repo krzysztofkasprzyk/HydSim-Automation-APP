@@ -51,6 +51,7 @@ class HSApp(Window):
         purple = "#6a0dad"
         purple_hover = "#7d3fdc"
         purple_disabled = "#a89edb"
+        info_color = "#2c3e50"  # A dark blue/grey for highlighted text
 
         style.configure("Logger.TFrame", background="#ffffff")
         style.configure("TButton", background=purple, foreground="white", borderwidth=1)
@@ -66,6 +67,11 @@ class HSApp(Window):
         style.map("TNotebook.Tab",
                   background=[("selected", purple), ("active", purple_hover)],
                   foreground=[("selected", "white")])
+
+        # New styles for highlighting specific parameters
+        style.configure("Info.TLabel", foreground=info_color)  # For parameter labels
+        style.configure("Primary.TEntry", fieldbackground="#e0eaff")  # A light blue background for entries
+        style.configure("Primary.TCombobox", fieldbackground="#e0eaff")  # A light blue background for combobox
 
     def _load_logo(self):
         try:
@@ -133,7 +139,7 @@ class HSApp(Window):
         options_frame = ttk.LabelFrame(self, text="Save Options")
         options_frame.pack(fill="x", padx=10, pady=5)
 
-        self.filename_suffix_var = tk.StringVar()
+        self.filename_suffix_var = tk.StringVar(value="_updated")  # Default suffix
         self.save_folder_var = tk.StringVar()
 
         ttk.Label(options_frame, text="Filename suffix:").pack(side="left", padx=(5, 0))
@@ -158,39 +164,68 @@ class HSApp(Window):
         self.file_vars.clear()
 
         for i, fpath in enumerate(files):
+            # Check if the file name already has the suffix. If so, strip it for clearer display.
+            base_name = os.path.basename(fpath)
+            name_part, ext = os.path.splitext(base_name)
+            suffix_val = self.filename_suffix_var.get()
+            if suffix_val and name_part.endswith(suffix_val):
+                display_name = f"{name_part[:-len(suffix_val)]}{ext}"
+            else:
+                display_name = base_name
+
             var = ttk.BooleanVar(value=(i == 0))  # pierwszy plik zaznaczony
             self.file_vars[fpath] = var
-            self.file_list.append(fpath)
 
             cb = ttk.Checkbutton(
                 self.files_inner_frame,
-                text=os.path.basename(fpath),
+                text=display_name,  # Display the potentially stripped name
                 variable=var,
                 bootstyle="info-round-toggle",
-                command=lambda p=fpath: self.select_file(p)
+                # command=lambda p=fpath: self.select_file(p) # Removed direct command
             )
             cb.pack(anchor="w", pady=3, padx=5)
-            cb.bind("<Button-1>", lambda e, p=fpath: self.select_file(p))
+            # Bind to ButtonRelease-1 to ensure checkbutton state is updated before select_file is called
+            cb.bind("<ButtonRelease-1>", lambda e, p=fpath: self.select_file(p))
+            self.file_list.append(fpath)  # Append to file_list AFTER binding the command
 
         if self.file_list:
             self.select_file(self.file_list[0])
+        else:
+            # Clear all tabs if no files are loaded
+            self.global_tab.set_fields({})
+            self.hpu_tab.set_fields({})
+            self.hd_tab.set_fields({})
+            for tab_id in self.notebook.tabs():
+                tab = self.notebook.nametowidget(tab_id)
+                if isinstance(tab, ParamsTab) and tab not in [self.global_tab, self.hpu_tab, self.hd_tab]:
+                    tab.set_fields({})
 
     def select_file(self, filepath):
         """
         Wczytuje dane z wybranego pliku i ustawia pola w GUI.
         """
+        # Deselect all other checkboxes, then select the current one
+        # This part is handled by the checkbutton's variable management now,
+        # but ensure only one is truly "active" for loading.
+        for p, var in self.file_vars.items():
+            if p != filepath:
+                var.set(False)  # Uncheck others
+            else:
+                var.set(True)  # Ensure this one is checked
+
         try:
             self.current_file = filepath
             data = parse_hs_file(filepath)
 
+            # Pass the parsed data to all tabs
             self.global_tab.set_fields(data)
             self.hpu_tab.set_fields(data)
             self.hd_tab.set_fields(data)
 
-            # Reset zakładek dummy
+            # Reset dummy tabs
             for tab_id in self.notebook.tabs():
                 tab = self.notebook.nametowidget(tab_id)
-                if isinstance(tab, ParamsTab) and tab not in [self.global_tab, self.hpu_tab]:
+                if isinstance(tab, ParamsTab) and tab not in [self.global_tab, self.hpu_tab, self.hd_tab]:
                     tab.set_fields({})
 
         except Exception as e:
@@ -210,14 +245,16 @@ class HSApp(Window):
         Zapisuje dane do wybranych plików z uwzględnieniem sufiksu i folderu.
         """
         all_data = {}
+        # Get data from all active tabs. hd_tab.get_fields() will already contain updated supply_data
         all_data.update(self.global_tab.get_fields())
         all_data.update(self.hpu_tab.get_fields())
-        all_data.update(self.hd_tab.get_fields())
+        all_data.update(self.hd_tab.get_fields())  # This should now include all umbilical data
 
-        # Pobierz dane z dummy zakładek
-        for i in range(2, self.notebook.index("end")):
+        # Get data from dummy tabs
+        for i in range(self.notebook.index(self.hd_tab) + 1, self.notebook.index("end")):  # Iterate from after hd_tab
             tab = self.notebook.nametowidget(self.notebook.tabs()[i])
-            all_data.update(tab.get_fields())
+            if isinstance(tab, ParamsTab):  # Ensure it's a ParamsTab
+                all_data.update(tab.get_fields())
 
         saved_files = []
         errors = []
@@ -226,27 +263,39 @@ class HSApp(Window):
         suffix = self.filename_suffix_var.get().strip()
 
         if folder and not os.path.isdir(folder):
-            folder = os.path.dirname(folder)
+            # If the user typed a path that doesn't exist, try to use its directory.
+            if os.path.dirname(folder):
+                folder = os.path.dirname(folder)
+            else:  # User typed a non-existent name like "new_folder" without path
+                folder = ""  # Will default to original file's directory if empty
 
-        for fpath in self.file_list:
-            if self.file_vars[fpath].get():
-                try:
-                    save_dir = folder if folder else os.path.dirname(fpath)
-                    os.makedirs(save_dir, exist_ok=True)
-                    success = save_hs_file(all_data, fpath, save_dir, suffix)
+        # Collect files that are checked in the GUI list
+        files_to_save = [fpath for fpath, var in self.file_vars.items() if var.get()]
 
-                    base_name = os.path.basename(fpath)
-                    name, ext = os.path.splitext(base_name)
-                    new_name = f"{name}{suffix}{ext}" if suffix else base_name
+        if not files_to_save:
+            messagebox.showwarning("Save results", "Nie wybrano żadnego pliku do zapisu.")
+            return
 
-                    if success:
-                        saved_files.append(new_name)
-                    else:
-                        errors.append(f"{base_name}: błąd zapisu")
+        for fpath in files_to_save:
+            try:
+                save_dir = folder if folder else os.path.dirname(fpath)
+                os.makedirs(save_dir, exist_ok=True)
 
-                except Exception as e:
-                    traceback.print_exc()
-                    errors.append(f"{os.path.basename(fpath)}: {e}")
+                # Pass all_data, which contains values from all tabs
+                success = save_hs_file(all_data, fpath, save_dir, suffix)
+
+                base_name = os.path.basename(fpath)
+                name, ext = os.path.splitext(base_name)
+                new_name = f"{name}{suffix}{ext}" if suffix else base_name
+
+                if success:
+                    saved_files.append(new_name)
+                else:
+                    errors.append(f"{base_name}: błąd zapisu")
+
+            except Exception as e:
+                traceback.print_exc()
+                errors.append(f"{os.path.basename(fpath)}: {e}")
 
         msg = ""
         if saved_files:

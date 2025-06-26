@@ -29,14 +29,14 @@ def parse_hs_file(filepath):
     print(f"[parse_hs_file] Wczytywanie pliku: {filepath}")
     data = {key: "" for key in PARAM_KEYS}
 
-
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
     except Exception as e:
         print(f"[parse_hs_file] Błąd odczytu pliku: {e}")
         return data
-        # Dodanie SCM counts po odczytaniu pliku
+
+    # Dodanie SCM counts po odczytaniu pliku
     scm_values = extract_scm_counts(filepath)
     print(f"[parse_hs_file] SCM dane: {scm_values}")
     data.update(scm_values)
@@ -44,6 +44,8 @@ def parse_hs_file(filepath):
     # Usuwanie komentarzy
     lines = [line for line in content.splitlines() if not line.strip().startswith(';')]
     filtered_text = "\n".join(lines)
+
+
 
     # Wzorce regex do szybkich parametrów
     patterns = {
@@ -191,6 +193,7 @@ def save_hs_file(data, original_filepath, save_directory, suffix="_up"):
             if in_manifold:
                 if stripped.startswith("Template"):
                     current_template = stripped.split()[1]
+                    print(f"[save_hs_file] Template w sekcji LINE: {current_template}")
                 elif stripped.startswith("Depth") and current_template:
                     key = f"{current_template}_Depth"
                     if key in data and data[key]:
@@ -210,24 +213,36 @@ def save_hs_file(data, original_filepath, save_directory, suffix="_up"):
 
             # === Sekcja LINE Us (Supply Umbilical) ===
             if stripped.startswith("LINE") and "Us" in stripped:
+                print(f"[save_hs_file] Weszliśmy w sekcję LINE Us: {stripped}")
                 in_line = True
                 in_manifold = False
                 current_template = None
                 continue
 
-            if in_line:
-                if stripped.startswith("Template"):
-                    current_template = stripped.split()[1]
-                elif current_template:
-                    tokens = stripped.split()
-                    if len(tokens) >= 2:
-                        key = tokens[0]
-                        full_key = f"{current_template}_{key}"
-                        if full_key in data:
-                            value = data[full_key]
-                            lines[i] = f"  {key:<30} {value}\n"
-                            print(f"[save_hs_file] {key} → {current_template}: {value}")
-                if stripped == "" or stripped.startswith("LINE"):
+            tokens = stripped.split()
+
+            if len(tokens) >= 2:
+
+                key = tokens[0]
+
+                full_key = f"{current_template}_{key}"
+
+                if full_key in data:
+                    value = data[full_key]
+                    print(f"[save_hs_file] Sprawdzam {full_key} → {value}")
+
+                    old = lines[i].rstrip()
+
+                    lines[i] = f"  {key:<30} {value}\n"
+
+                    print(f"[save_hs_file] Nadpisano w LINE Us: '{old}' → '{lines[i].strip()}'")
+
+            else:
+
+                print(f"[save_hs_file] Pomiń nieparsowalną linię w LINE Us: {stripped}")
+
+                if stripped == "" or stripped.startswith("LINE") or stripped.startswith(";;;"):
+                    print(f"[save_hs_file] Koniec sekcji LINE Us: {stripped}")
                     in_line = False
                     current_template = None
 
@@ -240,43 +255,6 @@ def save_hs_file(data, original_filepath, save_directory, suffix="_up"):
     except Exception as e:
         print(f"[save_hs_file] Błąd zapisu: {e}")
         return False
-
-def extract_scm_counts(filepath):
-    """
-    Szuka sekcji ';;; Subsea Control Module' i wyciąga template oraz wartość Tree.
-    Zwraca słownik { 'A_SCM': 3, 'B_SCM': 5, ... }.
-    """
-    scm_data = {}
-    in_scm_section = False
-    current_template = None
-
-    with open(filepath, 'r', encoding='utf-8') as f:
-        for line in f:
-            stripped = line.strip()
-
-            if stripped.startswith(";;; Subsea Control Module"):
-                in_scm_section = True
-                current_template = None
-                continue
-
-            if in_scm_section:
-                if stripped.startswith("Template"):
-                    current_template = stripped.split()[-1]
-
-                elif stripped.startswith("Tree") and current_template:
-                    try:
-                        tree_count = int(stripped.split()[-1])
-                        key = f"{current_template}_SCM"
-                        if key not in scm_data or tree_count > scm_data[key]:
-                            scm_data[key] = tree_count
-                    except ValueError:
-                        pass
-
-                elif stripped == "" or stripped.startswith(";;;"):
-                    in_scm_section = False
-                    current_template = None
-
-    return scm_data
 
 def extract_scm_counts(filepath):
     """
@@ -331,4 +309,5 @@ def extract_scm_counts(filepath):
 
     print(f"[SCM] Wynik końcowy: {scm_data}")
     return scm_data
+
 

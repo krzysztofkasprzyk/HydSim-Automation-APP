@@ -114,7 +114,7 @@ class ParamsTab(ttk.Frame):
         """
         result = {}
         for key, widget in self.fields.items():
-            if not self.check_vars[key].get():
+            if key.endswith("_status") or not self.check_vars.get(key, tk.BooleanVar(value=True)).get():
                 continue
             try:
                 result[key] = widget.get()
@@ -183,7 +183,7 @@ class HydraulicDistributionTab(ttk.Frame):
     def set_fields(self, data):
         """
         Buduje interfejs dla każdego template'u na podstawie danych z pliku HS.
-        Ustawia wartości pól: Depth, ConnectedTo, Length (z fallbackiem z _Length).
+        Ustawia wartości pól: Depth, ConnectedTo, SCM, Length (z fallbackiem z _Length).
         Dodaje status LED: zielony jeśli wartość jest, czerwony jeśli brak.
         """
         self.supply_data = data
@@ -265,7 +265,7 @@ class HydraulicDistributionTab(ttk.Frame):
     def get_fields(self):
         result = {}
         for key, widget in self.fields.items():
-            if not self.check_vars.get(key, tk.BooleanVar(value=True)).get():
+            if key.endswith("_status") or not self.check_vars.get(key, tk.BooleanVar(value=True)).get():
                 continue
             try:
                 result[key] = widget.get()
@@ -397,20 +397,18 @@ class HydraulicDistributionTab(ttk.Frame):
             if unit:
                 ttk.Label(row, text=unit).pack(side="left", padx=5)
 
-            # === LED inicjalizacja
             color = "#5cb85c" if value else "#d9534f"
             indicator = tk.Label(row, width=2, height=1, bg=color)
             indicator.pack(side="left", padx=5)
 
-            # === Reaktywność LED
             def update_led(*_):
-                new_val = var.get().strip()
-                indicator.config(bg="#5cb85c" if new_val else "#d9534f")
+                indicator.config(bg="#5cb85c" if var.get().strip() else "#d9534f")
 
             var.trace_add("write", update_led)
 
             self.fields[key] = entry
             self.fields[key + "_status"] = indicator
+            self.check_vars[key] = tk.BooleanVar(value=True)
 
         def add_combo(parent, label, key_suffix, values, default=None):
             key = f"{template}_{key_suffix}"
@@ -426,7 +424,6 @@ class HydraulicDistributionTab(ttk.Frame):
             combo = ttk.Combobox(row, textvariable=var, values=values, state="readonly", width=15)
             combo.pack(side="left")
 
-            # === LED inicjalizacja
             color = "#5cb85c" if value else "#d9534f"
             indicator = tk.Label(row, width=2, height=1, bg=color)
             indicator.pack(side="left", padx=5)
@@ -438,6 +435,7 @@ class HydraulicDistributionTab(ttk.Frame):
 
             self.fields[key] = combo
             self.fields[key + "_status"] = indicator
+            self.check_vars[key] = tk.BooleanVar(value=True)
 
         # === Parametry
         add_param(line_tab, "ID of line", "Diameter", "mm")
@@ -448,13 +446,29 @@ class HydraulicDistributionTab(ttk.Frame):
         add_param(line_tab, "Transition Number lam/turb flow", "Trnum")
         add_param(line_tab, "Effective stiffness of fluid and line", "Beta", "bar")
         add_param(line_tab, "Linear increase in bulk modulus: Beta + Binc*pr", "Binc")
-        add_param(line_tab, "Volumetric expansion correction (VEcorr)", "VEcorr")  # tylko jedno
+        add_param(line_tab, "Volumetric expansion correction (VEcorr)", "VEcorr")
         add_combo(line_tab, "Type", "Type", ["Constant", "Variable"], "Constant")
 
-        # === Przyciski
         btn_frame = ttk.Frame(window)
         btn_frame.pack(fill="x", padx=10, pady=10)
         ttk.Button(btn_frame, text="OK", command=window.destroy).pack(side="right", padx=5)
-        ttk.Button(btn_frame, text="Apply", command=lambda: print("Apply clicked")).pack(side="right", padx=5)
+
+        def apply_supply_changes():
+            for key in self.fields:
+                if key.startswith(f"{template}_") and not key.endswith("_status"):
+                    widget = self.fields[key]
+                    try:
+                        value = widget.get()
+                        self.supply_data[key] = value
+                    except Exception:
+                        self.supply_data[key] = ""
+
+            print(f"[Apply] Zapisano dane dla Umbilical {template}:")
+            for k, v in self.supply_data.items():
+                if k.startswith(f"{template}_"):
+                    print(f"  {k} = {v}")
+
+        ttk.Button(btn_frame, text="Apply", command=apply_supply_changes).pack(side="right", padx=5)
+
         ttk.Button(btn_frame, text="Cancel", command=window.destroy).pack(side="right", padx=5)
 
